@@ -93,7 +93,7 @@ function MainPage() {
   };
   const ReadInput = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    let readName = event.target.someName.value;
+    let readName = (event.currentTarget.someName as HTMLInputElement).value;
     setGoodIndex(FindUser(data,readName))
     if (readName === ''){
         setGoodIndex([]);
@@ -108,7 +108,7 @@ function MainPage() {
           <span className="border border-solid text-[25px] p-[10px] rounded">
             Список пользователей
           </span>
-          <div className="mt-[20px] flex gap-[20px]">
+          <div className="mt-[20px] flex gap-[20px] flex-wrap">
             <button
               onClick={() => getData()}
               className="border border-solid text-[15px] hover:bg-gray-300 p-[5px] h-[50px] cursor-pointer rounded"
@@ -123,9 +123,9 @@ function MainPage() {
             >
               {sortNames[StateOfSort].sortName}
             </button>
-            <form className="flex gap-[10px]" onSubmit={ReadInput} action="">
+            <form className="flex gap-[10px] w-full sm:w-auto flex-wrap" onSubmit={ReadInput} action="">
                 <input name="someName" className={`bg-white ${data.length === 0 ? 'w-[0px]' : 'w-[300px]'} transition-all duration-300 h-[50px] text-[20px] rounded`} placeholder="Поиск пользователя"></input>
-                <button className={` cursor-pointer overflow-hidden hover:bg-gray-300 ${data.length === 0 ? 'w-[0px]' : 'w-[100px] border border-solid'} transition-all duration-300`} type="submit">Submit</button>
+                <button className={` cursor-pointer overflow-hidden hover:bg-gray-300 ${data.length === 0 ? 'w-[0px]' : 'w-[100px] border border-solid'} transition-all duration-300`} type="submit">Поиск</button>
             </form>
           </div>
           <div className="flex mt-[20px] flex-wrap gap-[10px]">

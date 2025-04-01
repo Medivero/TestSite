@@ -1,6 +1,6 @@
 import MainPage from './components/pages/mainpage'
 import './styles.css'
-import { BrowserRouter, Route, Router, Routes } from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router'
 
 function App() {
   return (
